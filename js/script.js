@@ -1,33 +1,35 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Project data similar to Mealtime Magic's recipe data
+    // Project data with proper URLs for each project
     const projects = {
         'mealtime-magic': {
             title: 'Mealtime Magic',
             description: 'A recipe website that allows users to browse, add, and get recipes. Features include recipe filtering and interactive elements.',
             technologies: ['HTML', 'CSS', 'JavaScript'],
-            category: 'web'
+            category: 'web',
+            url: 'https://jjumaaa.github.io/Mealtime-Magic-Project/'
         },
         'ramen-rater': {
             title: 'Ramen Rater',
             description: 'A website that allows customers to rate their favorite ramen dishes with interactive rating functionality.',
             technologies: ['HTML', 'CSS', 'JavaScript'],
-            category: 'web'
+            category: 'web',
+            url: 'https://jjumaaa.github.io/Phase-1-Code-Challenge-Ramen-Rater/'
         },
-        'coming-soon-1': {
-            title: 'New Project Coming Soon',
-            description: 'Working on something exciting! Check back soon to see my latest creation.',
-            technologies: ['Coming Soon'],
+        'lost-movieweb': {
+            title: 'Lost MovieWeb',
+            description: 'A digital archive for rediscovering forgotten cinematic treasures',
+            technologies: ['HTML', 'CSS', 'JavaScript'],
             category: 'upcoming'
         },
-        'coming-soon-2': {
-            title: 'Future Project',
-            description: 'Stay tuned for my next creation as I continue to expand my skills.',
+        'reinovating-kenya': {
+            title: 'Reinovating Kenya',
+            description: 'An upcoming project about transportation in Kenya',
             technologies: ['Coming Soon'],
             category: 'upcoming'
         }
     };
 
-    // Add filter buttons dynamically (won't affect HTML structure)
+    // Add filter buttons dynamically
     const filterButtons = `
         <button class="filter-btn active" data-filter="all">All Projects</button>
         <button class="filter-btn" data-filter="web">Web Projects</button>
@@ -43,13 +45,13 @@ document.addEventListener('DOMContentLoaded', function() {
         item.setAttribute('data-project', projectId);
         item.setAttribute('data-category', projects[projectId].category);
         
-        // Update the link to trigger lightbox instead of direct navigation
+        // Store the original link in a data attribute
         const link = item.querySelector('.gallery-link');
-        link.href = '#';
         link.setAttribute('data-project', projectId);
+        link.setAttribute('data-original-href', link.href);
     });
 
-    // Filter functionality (like Mealtime Magic)
+    // Filter functionality
     document.querySelectorAll('.filter-btn').forEach(button => {
         button.addEventListener('click', function() {
             // Update active button
@@ -91,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.body.insertAdjacentHTML('beforeend', lightboxHTML);
 
-    // Lightbox functionality
+    // Lightbox elements
     const lightbox = document.getElementById('project-lightbox');
     const lightboxImage = document.querySelector('.lightbox-image');
     const lightboxTitle = document.querySelector('.lightbox-title');
