@@ -2,6 +2,10 @@
 
 This is the personal portfolio website of I, Gerald Juma, an aspiring web developer.
 
+# Link
+https://my-personal-web-opal.vercel.app/
+https://jjumaaa.github.io/My-Personal-Web/
+
 ## About
 
 This website showcases my skills and projects as a new front-end developer. It's built using HTML and CSS, demonstrating my passion for creating engaging and user-friendly web experiences.
